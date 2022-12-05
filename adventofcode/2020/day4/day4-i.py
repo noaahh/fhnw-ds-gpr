@@ -9,9 +9,7 @@ def solve():
             line = line.rstrip()
 
             if len(line) == 0:
-                if sum(1 for key in passport.keys() if key != "cid" and passport[key] is None) == 0:
-                    valid += 1
-
+                valid += check_passport(passport)
                 passport = dict.fromkeys(passport_keys)
                 continue
 
@@ -20,7 +18,12 @@ def solve():
                 key, value = pair.split(":")
                 passport[key] = value
 
+        valid += check_passport(passport)
         return valid
+
+
+def check_passport(passport):
+    return 1 if sum(1 for key in passport.keys() if passport[key] is None and key != "cid") == 0 else 0
 
 
 print(solve())
