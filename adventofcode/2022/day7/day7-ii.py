@@ -68,5 +68,5 @@ with open('input.txt') as f:
                 file = File(name=line[len(size) + 1:], size=int(size))
                 cd.files.append(file)
 
-    root.ls()
-    print(sum([d.total_size() for d in root.get_flat_sub_dirs() if d.total_size() <= 100000]))
+    deletion_size = root.total_size() - 70000000 + 30000000
+    print(list(sorted(d.total_size() for d in root.get_flat_sub_dirs() if d.total_size() >= deletion_size))[0])
