@@ -1,3 +1,10 @@
+def get_distance(grid, pos, vertical_lim, horizontal_lim):
+    distance = 0
+    for ti in range(i - 1, -1, -1):
+        distance += 1
+        if int(grid[pos[0]][pos[1]]) >= tree:
+            break
+
 with open('input.txt') as f:
     grid = [l.rstrip() for l in f.readlines()]
     highest_score = 0
